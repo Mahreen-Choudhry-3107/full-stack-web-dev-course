@@ -3,9 +3,425 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>📘 HTML · zero → advanced · complete notes</title>
+  <!-- 
+    ═══════════════════════════════════════════════════════════
+    COMPLETE HTML NOTES — from zero to advanced
+    one single index.html · detailed comments inside
+    ═══════════════════════════════════════════════════════════
+  -->
+  <style>
+    /* ---------- global reset / base ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f8fafc;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      padding: 2rem 1.5rem;
+      line-height: 1.7;
+      color: #0b1e2e;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: white;
+      padding: 2.5rem 2.8rem;
+      border-radius: 32px;
+      box-shadow: 0 20px 60px -12px rgba(0,0,0,0.08);
+    }
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      border-bottom: 3px solid #e2e8f0;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    h1 small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #3b5e7a;
+      margin-left: 0.5rem;
+      background: #eef2f6;
+      padding: 0.1rem 0.9rem;
+      border-radius: 40px;
+    }
+    h2 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1rem 0;
+      color: #0b2a41;
+      border-left: 5px solid #2b6f9e;
+      padding-left: 1rem;
+    }
+    h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 1.8rem 0 0.7rem 0;
+      color: #1d4a6b;
+    }
+    h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 1.2rem 0 0.3rem 0;
+      color: #1f4d6e;
+    }
+    p {
+      margin: 0.8rem 0;
+    }
+    .note-box {
+      background: #f1f6fa;
+      border-radius: 16px;
+      padding: 1.2rem 1.8rem;
+      margin: 1.4rem 0;
+      border-left: 6px solid #2b6f9e;
+    }
+    .code-block {
+      background: #0e1e2b;
+      color: #e4f0fb;
+      padding: 1.2rem 1.5rem;
+      border-radius: 14px;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 0.9rem;
+      margin: 1rem 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      box-shadow: inset 0 0 0 1px #2d4052;
+    }
+    .code-block code {
+      background: transparent;
+      padding: 0;
+      color: inherit;
+    }
+    .inline-code {
+      background: #e7edf3;
+      padding: 0.1rem 0.5rem;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 0.9rem;
+      color: #0d2d44;
+    }
+    ul, ol {
+      padding-left: 1.8rem;
+      margin: 0.8rem 0;
+    }
+    li {
+      margin: 0.3rem 0;
+    }
+    hr {
+      border: 0;
+      height: 2px;
+      background: linear-gradient(to right, #d0dce8, transparent);
+      margin: 2.2rem 0;
+    }
+    .badge {
+      background: #2b6f9e;
+      color: white;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      letter-spacing: 0.3px;
+      display: inline-block;
+      margin-right: 0.3rem;
+    }
+    .footnote {
+      margin-top: 2.5rem;
+      font-size: 0.9rem;
+      color: #3d5d78;
+      border-top: 2px dashed #cbd9e6;
+      padding-top: 1.8rem;
+      text-align: center;
+    }
+    /* for smaller screens */
+    @media (max-width: 600px) {
+      .container { padding: 1.5rem; }
+      h1 { font-size: 2rem; flex-wrap: wrap; }
+    }
+  </style>
 </head>
 <body>
-  
+<div class="container">
+
+  <!-- ███████████████████████████████████████████████████████ -->
+  <!--  LECTURE 1 · HTML BASICS · ZERO → STRUCTURE            -->
+  <!-- ███████████████████████████████████████████████████████ -->
+  <h1>
+    📘 HTML · zero to advanced
+    <small>lecture notes</small>
+  </h1>
+
+  <div class="note-box">
+    <strong>🧭 how to read these notes</strong><br>
+    Every concept is explained with <span class="inline-code">code</span> and detailed comments inside the HTML.
+    You are viewing the <strong>final rendered page</strong> — but open the source!
+    All the <span class="inline-code">&lt;!-- comments --&gt;</span> are written as if I were teaching a course.
+  </div>
+
+  <!-- ========== SECTION 1: DOCUMENT & ELEMENTS ========== -->
+  <h2>1. The HTML document · skeleton</h2>
+  <p>
+    Every HTML page starts with <span class="inline-code">&lt;!DOCTYPE html&gt;</span> and the 
+    <span class="inline-code">&lt;html&gt;</span> root. Inside we have <span class="inline-code">&lt;head&gt;</span> 
+    (metadata, title) and <span class="inline-code">&lt;body&gt;</span> (visible content).
+  </p>
+
+  <div class="code-block">&lt;!-- ========== BASIC TEMPLATE ========== --&gt;
+&lt;!DOCTYPE html&gt;              &lt;!-- tells browser this is HTML5 --&gt;
+&lt;html lang="en"&gt;              &lt;!-- root element, language attribute --&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;    &lt;!-- character encoding (UTF-8) --&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; 
+    &lt;title&gt;page title&lt;/title&gt; &lt;!-- appears in browser tab --&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- all visible content goes here --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</div>
+
+  <p><span class="badge">element</span> <strong>Tags</strong> are the building blocks. Most have an opening <span class="inline-code">&lt;tag&gt;</span> and closing <span class="inline-code">&lt;/tag&gt;</span>. Some are self-closing: <span class="inline-code">&lt;img&gt;</span>, <span class="inline-code">&lt;input&gt;</span>, <span class="inline-code">&lt;br&gt;</span>.</p>
+
+  <!-- ========== SECTION 2: HEADINGS & PARAGRAPHS ========== -->
+  <h2>2. Text basics · headings & paragraphs</h2>
+  <h3>Headings <span style="font-weight:400; font-size:1rem;">h1 → h6</span></h3>
+  <div class="code-block">&lt;h1&gt;Main title (only once per page)&lt;/h1&gt;
+&lt;h2&gt;Section heading&lt;/h2&gt;
+&lt;h3&gt;Sub-section&lt;/h3&gt;
+&lt;h4&gt;Sub-sub&lt;/h4&gt;
+&lt;h5&gt;level 5&lt;/h5&gt;
+&lt;h6&gt;level 6&lt;/h6&gt;</div>
+
+  <h3>Paragraphs & inline text</h3>
+  <div class="code-block">&lt;p&gt;This is a paragraph. It has space above and below.&lt;/p&gt;
+&lt;p&gt;Use &lt;strong&gt;strong&lt;/strong&gt; (bold) and &lt;em&gt;emphasis&lt;/em&gt; (italic). 
+&lt;br&gt;   &lt;!-- line break (self-closing) --&gt;
+&lt;hr&gt;   &lt;!-- horizontal rule (thematic break) --&gt;</div>
+
+  <!-- ========== SECTION 3: LISTS & LINKS ========== -->
+  <h2>3. Lists · ordered & unordered</h2>
+  <div class="code-block">&lt;ul&gt;  &lt;!-- unordered list (bullet) --&gt;
+  &lt;li&gt;first item&lt;/li&gt;
+  &lt;li&gt;second item&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;  &lt;!-- ordered list (numbered) --&gt;
+  &lt;li&gt;step one&lt;/li&gt;
+  &lt;li&gt;step two&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- nested lists are fine --&gt;
+&lt;ul&gt;
+  &lt;li&gt;item
+    &lt;ul&gt;&lt;li&gt;nested&lt;/li&gt;&lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</div>
+
+  <h3>Hyperlinks · <span class="inline-code">&lt;a&gt;</span></h3>
+  <div class="code-block">&lt;a href="https://example.com" target="_blank"&gt;visit example&lt;/a&gt;
+&lt;!-- target="_blank" opens in new tab --&gt;
+&lt;a href="#section-id"&gt;internal jump&lt;/a&gt;  &lt;!-- anchor link --&gt;</div>
+
+  <!-- ========== SECTION 4: IMAGES & MEDIA ========== -->
+  <h2>4. Images & media</h2>
+  <div class="code-block">&lt;img src="photo.jpg" alt="description of image" width="300" height="200"&gt;
+&lt;!-- alt is mandatory for accessibility --&gt;
+
+&lt;video controls width="400"&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+  your browser doesn't support video.
+&lt;/video&gt;
+
+&lt;audio controls&gt;
+  &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+&lt;/audio&gt;</div>
+
+  <!-- ========== SECTION 5: TABLES ========== -->
+  <h2>5. Tables · structured data</h2>
+  <div class="code-block">&lt;table border="1"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Age&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Alice&lt;/td&gt;&lt;td&gt;28&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Bob&lt;/td&gt;&lt;td&gt;32&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;&lt;td colspan="2"&gt;total: 2 people&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;
+&lt;!-- colspan / rowspan for merging cells --&gt;</div>
+
+  <!-- ========== SECTION 6: FORMS ========== -->
+  <h2>6. Forms · user input</h2>
+  <div class="code-block">&lt;form action="/submit" method="post"&gt;
+  &lt;label for="name"&gt;Name:&lt;/label&gt;
+  &lt;input type="text" id="name" name="username" placeholder="your name"&gt;
+
+  &lt;label&gt;Email: &lt;input type="email" name="email" required&gt;&lt;/label&gt;
+
+  &lt;input type="radio" id="male" name="gender" value="male"&gt;
+  &lt;label for="male"&gt;Male&lt;/label&gt;
+
+  &lt;select name="city"&gt;
+    &lt;option value="nyc"&gt;New York&lt;/option&gt;
+    &lt;option value="lon"&gt;London&lt;/option&gt;
+  &lt;/select&gt;
+
+  &lt;textarea name="message" rows="3" cols="30"&gt;default text&lt;/textarea&gt;
+
+  &lt;button type="submit"&gt;Send&lt;/button&gt;
+  &lt;input type="reset" value="clear"&gt;
+&lt;/form&gt;</div>
+
+  <!-- ========== SECTION 7: SEMANTIC HTML ========== -->
+  <h2>7. Semantic HTML · meaning & structure</h2>
+  <p>Use elements that describe <em>what</em> the content is, not just how it looks.</p>
+  <div class="code-block">&lt;header&gt;   &lt;!-- site header / intro --&gt;
+&lt;nav&gt;      &lt;!-- navigation links --&gt;
+&lt;main&gt;     &lt;!-- main content (only one per page) --&gt;
+&lt;article&gt;  &lt;!-- self-contained content --&gt;
+&lt;section&gt;  &lt;!-- thematic group --&gt;
+&lt;aside&gt;    &lt;!-- sidebar / complementary --&gt;
+&lt;footer&gt;   &lt;!-- footer / credits --&gt;
+&lt;figure&gt;   &lt;!-- figure with figcaption --&gt;
+&lt;time&gt;     &lt;!-- machine-readable date --&gt;</div>
+
+  <!-- ========== SECTION 8: ADVANCED ========== -->
+  <h2>8. Advanced · iframes, data, ARIA</h2>
+
+  <h3>iframe · embed external content</h3>
+  <div class="code-block">&lt;iframe src="https://example.com" width="400" height="300" title="example"&gt;&lt;/iframe&gt;</div>
+
+  <h3>Custom data attributes · <span class="inline-code">data-*</span></h3>
+  <div class="code-block">&lt;div data-user-id="123" data-role="admin"&gt;user panel&lt;/div&gt;
+&lt;!-- accessible via JS: element.dataset.userId --&gt;</div>
+
+  <h3>ARIA · accessibility</h3>
+  <div class="code-block">&lt;nav role="navigation" aria-label="main"&gt;...&lt;/nav&gt;
+&lt;button aria-expanded="false" aria-controls="menu"&gt;menu&lt;/button&gt;</div>
+
+  <h3>Template & slot (web components)</h3>
+  <div class="code-block">&lt;template id="card"&gt;
+  &lt;div class="card"&gt;
+    &lt;slot name="title"&gt;title&lt;/slot&gt;
+    &lt;slot name="content"&gt;content&lt;/slot&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</div>
+
+  <!-- ========== SECTION 9: FORMS · INPUT TYPES ========== -->
+  <h2>9. Input types · modern controls</h2>
+  <div class="code-block">&lt;input type="color"&gt;    &lt;!-- color picker --&gt;
+&lt;input type="date"&gt;      &lt;!-- date picker --&gt;
+&lt;input type="range" min="0" max="100"&gt;
+&lt;input type="search"&gt;    &lt;!-- search field --&gt;
+&lt;input type="tel"&gt;       &lt;!-- telephone --&gt;
+&lt;input type="url"&gt;       &lt;!-- URL --&gt;
+&lt;input type="number" step="1"&gt;
+&lt;input type="password" autocomplete="current-password"&gt;
+&lt;input type="file" accept=".png, .jpg" multiple&gt;
+&lt;datalist id="browsers"&gt;  &lt;!-- autocomplete list --&gt;
+  &lt;option value="chrome"&gt;&lt;option value="firefox"&gt;
+&lt;/datalist&gt;</div>
+
+  <!-- ========== SECTION 10: META & PERFORMANCE ========== -->
+  <h2>10. Meta tags · SEO & performance</h2>
+  <div class="code-block">&lt;meta name="description" content="free HTML course"&gt;
+&lt;meta property="og:title" content="HTML notes"&gt;
+&lt;meta name="robots" content="index, follow"&gt;
+&lt;link rel="icon" href="favicon.ico"&gt;
+&lt;link rel="stylesheet" href="style.css"&gt;
+&lt;script src="script.js" defer&gt;&lt;/script&gt; &lt;!-- defer = load after HTML --&gt;</div>
+
+  <!-- ========== SECTION 11: ENTITIES & SYMBOLS ========== -->
+  <h2>11. HTML entities · reserved characters</h2>
+  <div class="code-block">&amp;lt;  = &lt;    &amp;gt;  = &gt;    &amp;amp; = &amp;
+&amp;quot; = "    &amp;copy; = ©    &amp;reg;  = ®
+&amp;nbsp; = non-breaking space   &amp;mdash; = —</div>
+
+  <!-- ========== SECTION 12: GLOBAL ATTRIBUTES ========== -->
+  <h2>12. Global attributes · all elements</h2>
+  <div class="code-block">class="..."     id="..."      style="..."     title="..."
+lang="en"       tabindex="0"  hidden         draggable="true"
+contenteditable="true"   spellcheck="true"  translate="no"</div>
+
+  <!-- ========== SECTION 13: INTERACTIVE ========== -->
+  <h2>13. Interactive elements · details, dialog</h2>
+  <div class="code-block">&lt;details&gt;
+  &lt;summary&gt;click to expand&lt;/summary&gt;
+  &lt;p&gt;hidden content now visible&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;dialog open&gt;  &lt;!-- modal dialog --&gt;
+  &lt;p&gt;this is a dialog box&lt;/p&gt;
+  &lt;button onclick="this.closest('dialog').close()"&gt;close&lt;/button&gt;
+&lt;/dialog&gt;</div>
+
+  <!-- ========== SECTION 14: SVG & MATH ========== -->
+  <h2>14. SVG & MathML · vector graphics & math</h2>
+  <div class="code-block">&lt;svg width="100" height="100"&gt;
+  &lt;circle cx="50" cy="50" r="40" fill="teal" /&gt;
+&lt;/svg&gt;
+
+&lt;math&gt;
+  &lt;mi&gt;E&lt;/mi&gt; &lt;mo&gt;=&lt;/mo&gt; &lt;mi&gt;m&lt;/mi&gt; &lt;msup&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;
+&lt;/math&gt;</div>
+
+  <!-- ========== SECTION 15: BEST PRACTICES ========== -->
+  <h2>15. Best practices · write clean HTML</h2>
+  <ul>
+    <li><strong>always</strong> use <span class="inline-code">alt</span> for images</li>
+    <li>use semantic elements (<span class="inline-code">&lt;article&gt;</span> instead of <span class="inline-code">&lt;div&gt;</span>)</li>
+    <li>indent consistently (2 or 4 spaces)</li>
+    <li>lowercase tag names and attributes</li>
+    <li>use <span class="inline-code">&lt;label&gt;</span> for form controls</li>
+    <li>validate with <a href="https://validator.w3.org" target="_blank">W3C validator</a></li>
+  </ul>
+
+  <!-- ███████████████████████████████████████████████████████ -->
+  <!--  EXTRA: interactive example (visible)                  -->
+  <!-- ███████████████████████████████████████████████████████ -->
+  <hr>
+  <h2>📎 live demo · form + output</h2>
+  <form id="demoForm" style="background:#f2f6fc; padding:1.2rem 1.8rem; border-radius:20px;">
+    <label>your name: <input type="text" id="demoName" placeholder="type something"></label>
+    <button type="button" onclick="showGreeting()">greet</button>
+    <p id="greetingOutput" style="margin-top:0.6rem; font-weight:500; color:#1b4e70;"></p>
+  </form>
+  <script>
+    // tiny interactive function — shows how HTML + JS work together
+    function showGreeting() {
+      const nameInput = document.getElementById('demoName');
+      const output = document.getElementById('greetingOutput');
+      const name = nameInput.value.trim() || 'stranger';
+      output.textContent = `👋 hello, ${name}! (this is JS inside HTML)`;
+    }
+  </script>
+
+  <!-- ========== FINAL WORDS ========== -->
+  <div class="footnote">
+    ⚡ complete HTML reference — from <strong>zero</strong> to <strong>advanced</strong>.<br>
+    every concept includes a comment in the source. 
+    keep this page as your cheat-sheet &amp; lecture guide.
+    <br>
+    @mahreen choudhry
+  </div>
+
+  <!-- 
+    █████████████████████████████████████████████████████████████████████
+    ！！ EXTRA META-COMMENTS (inside the HTML source) ！！
+    This page itself is a living example. all major topics are covered.
+    From doctype to semantic, forms, tables, media, ARIA, iframes, 
+    data attributes, SVG, MathML, global attributes, entities, 
+    and interactive JS — everything is here.
+    █████████████████████████████████████████████████████████████████████
+  -->
+
+</div> <!-- end container -->
 </body>
 </html>
